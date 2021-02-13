@@ -9,12 +9,11 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  </body>
   <body class="vsc-initialized">
     <header class=class="bg-dark text-white pt-5 pb-4">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-        <a class="navbar-brand" href="/">Bookers</a>
+        <p class="navbar-brand"><span>Bookers</span></p>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -39,7 +38,7 @@
             </li>
             <li class="nav-item">
             <%= link_to "About", home_about_path, class: 'fas fa-link nav-link text-light' %>
-            </li> 
+            </li>
             <li class="nav-item">
             <%= link_to "sign up", new_user_registration_path, class: 'fas fa-user-plus nav-link text-light' %>
             </li>
