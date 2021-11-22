@@ -4,13 +4,18 @@
     <div class="col-md-4 justify-content-end">
       <div>
         <% @messages.each do |message| %>
-        <div class="bg-light text-dark p-2 m-2 text-right">
+        <div class="bg-light text-dark p-2 m-2 text-right text-wrap">
           <%= message.text %>
         </div>
         <% end %>
       </div>
       <div>
-        <%= form_with model:@message, url:chat_room_messages_path(params[:id]), local:true do |f| %>
+        <% if @message.errors %>
+         <% @message.errors.full_messages.each do |error| %>
+           <%= error %>
+        <% end %>
+        <% end %>
+        <%= form_with model:@message, url:chat_room_messages_path(@chat_room.id), local:true do |f| %>
         <%= f.text_field :text %>
         <%= f.submit "送信" %>
         <% end %>
