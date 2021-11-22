@@ -1,0 +1,20 @@
+<div class="container">
+  <h1><%= @user.name %>さんとのチャット</h1>
+  <div class="row">
+    <div class="col-md-4 justify-content-end">
+      <div>
+        <% @messages.each do |message| %>
+        <div class="bg-light text-dark p-2 m-2 text-right">
+          <%= message.text %>
+        </div>
+        <% end %>
+      </div>
+      <div>
+        <%= form_with model:@message, url:chat_room_messages_path(params[:id]), local:true do |f| %>
+        <%= f.text_field :text %>
+        <%= f.submit "送信" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

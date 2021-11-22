@@ -7,5 +7,10 @@ resources :books, only: [:new, :create, :index, :show, :destroy, :edit, :update]
   resources :book_comments, only: [ :create, :destroy]
   resource :favorites, only: [:create, :destroy]
 end
-resources :users, only: [:show, :edit, :update, :index]
+resources :users, only: [:show, :edit, :update, :index] do
+  resource :relationships, only: [:create, :destroy]
+end
+resources :chat_rooms, only: [:show, :create] do
+  resource :messages, only: [:create]
+end
 end
