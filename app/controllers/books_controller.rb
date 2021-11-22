@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :ensure_user, only: [:edit, :update, :destroy]
+  impressionist :actions => [:show]
 
   def new
     @books = Book.new
@@ -35,6 +36,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @users = @book.user
     @book_comment = BookComment.new
+    impressionist(@book)
   end
 
   def destroy
